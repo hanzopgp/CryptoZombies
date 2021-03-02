@@ -1,2 +1,5 @@
 # CryptoZombies
-Learning how to code decentralized applications thanks to cryptozombies.
+
+## Presentation
+
+>This is the cryptozombie dapp tutoriel source code from [cryptozombie](https://www.cryptozombie.io).
