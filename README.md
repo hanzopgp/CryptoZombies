@@ -25,7 +25,8 @@ ownerZombieCount[msg.sender]++;`
 - Declarer une fonction qui n'a aucun side-effect
 `function f() pure {}`
 - Exemple d'interface
-`contract NumberInterface {
-  function getNum(address _myAddress) public view returns (uint);
-}`
+`contract NumberInterface {function getNum(address _myAddress) public view returns (uint);}`
+- Initialisation d'une interface KittyInterface grace a l'adresse du smart contract
+`address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
+KittyInterface kittyContract = KittyInterface(ckAddress);`
 
