@@ -47,8 +47,10 @@ Normalement, il n'y a pas d’intérêt à utiliser ces sous-types car Solidity 
 ### Avec les structures :
 
 >Si vous avez plusieurs uint dans une structure, utiliser des plus petits uint quand c'est possible permettra à Solidity d'emboîter ces variables ensemble pour qu'elles prennent moins de place.
+
 `struct NormalStruct { uint a; uint b; uint c; }`
 `struct MiniStruct { uint32 a; uint32 b; uint c; }`
+
 >**MiniStruct** utilisera moins de gas que **NormalStruct** grâce à l’emboîtement de structure.
 
 ## Ownable
