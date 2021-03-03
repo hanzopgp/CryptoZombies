@@ -37,7 +37,22 @@ La quantité de gas requit pour exécuter une fonction dépend de la complexité
 Parce qu'exécuter des fonctions coûte de l'argent réel pour les utilisateurs, l'optimisation de code est encore plus importante en Solidity que pour les autres langages de programmation. Si votre code est négligé, vos utilisateurs devront payer plus cher pour exécuter vos fonctions - et cela pourrait résulter en des millions de dollars de frais inutiles répartis sur des milliers d'utilisateurs.
 Ethereum est comme un ordinateur gros et lent, mais extrêmement sécurisé. Quand vous exécuter une fonction, chaque nœud du réseau doit exécuter la même fonction pour vérifier le résultat - c'est ces milliers de nœuds vérifiant chaque exécution de fonction qui rendent Ethereum décentralisé et les données immuables et résistantes à la censure.
 
+## Optimisation gas dans le code
+
+### Avec les uint :
+
+>Il existe d'autres types de uint : uint8, uint16, uint32, etc.
+Normalement, il n'y a pas d’intérêt à utiliser ces sous-types car Solidity réserve 256 bits de stockage indépendamment de la taille du uint. Par exemple, utiliser un uint8 à la place d'un uint (uint256) ne vous fera pas gagner de gas.
+
+### Avec les structures :
+
+>Si vous avez plusieurs uint dans une structure, utiliser des plus petits uint quand c'est possible permettra à Solidity d'emboîter ces variables ensemble pour qu'elles prennent moins de place.
+`struct NormalStruct { uint a; uint b; uint c; }`
+`struct MiniStruct { uint32 a; uint32 b; uint c; }`
+>**MiniStruct** utilisera moins de gas que **NormalStruct** grâce à l’emboîtement de structure.
+
 ## Ownable
+
 >Dans le cas de onlyOwner, rajouter ce modificateur à une fonction fera 
 en sorte que seulement le propriétaire du contrat (vous, si vous l'avez déployé) pourra appeler cette fonction.
 "onlyOwner" est une condition si courante pour les contrats que la plupart 
