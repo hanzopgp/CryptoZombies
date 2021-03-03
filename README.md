@@ -31,7 +31,7 @@ ownerZombieCount[msg.sender]++;`
 KittyInterface kittyContract = KittyInterface(ckAddress);`
 
 ## Ownable
-Dans le cas de onlyOwner, rajouter ce modificateur à une fonction fera 
+>Dans le cas de onlyOwner, rajouter ce modificateur à une fonction fera 
 en sorte que seulement le propriétaire du contrat (vous, si vous l'avez déployé) pourra appeler cette fonction.
 "onlyOwner" est une condition si courante pour les contrats que la plupart 
 des DApps Solidity commencent par copier/coller ce contrat Ownable, et leur premier contrat en hérite.
