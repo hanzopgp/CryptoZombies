@@ -35,7 +35,6 @@ KittyInterface kittyContract = KittyInterface(ckAddress);`
 en sorte que seulement le propriétaire du contrat (vous, si vous l'avez déployé) pourra appeler cette fonction.
 "onlyOwner" est une condition si courante pour les contrats que la plupart 
 des DApps Solidity commencent par copier/coller ce contrat Ownable, et leur premier contrat en hérite.
-
 >Pour résumer le contrat Ownable fait fondamentalement ceci :
 > - Quand un contrat est créé, son constructeur défini le owner égal à msg.sender (la personne qui le déploie)
 > - Il ajoute un modificateur onlyOwner, qui permet de restreindre l'accès à certaines fonctions à seulement le owner
