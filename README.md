@@ -51,13 +51,13 @@ Normalement, il n'y a pas d’intérêt à utiliser ces sous-types car Solidity 
 ### Avec les structures :
 
 >- Si vous avez plusieurs uint dans une structure, utiliser des plus petits uint quand c'est possible permettra à Solidity d'emboîter ces variables ensemble pour qu'elles prennent moins de place.
-- Vous pouvez passer un pointeur de stockage d'une structure comme argument à une fonction private ou internal. C'est pratique, par exemple, pour faire circuler notre structure Zombie entre fonctions. De cette manière, nous pouvons donner une référence à notre zombie à une fonction au lieu de donner l'Id zombie et le rechercher.
 
 `struct NormalStruct { uint a; uint b; uint c; }`
 
 `struct MiniStruct { uint32 a; uint32 b; uint c; }`
 
 >**MiniStruct** utilisera moins de gas que **NormalStruct** grâce à l’emboîtement de structure.
+- Vous pouvez passer un pointeur de stockage d'une structure comme argument à une fonction private ou internal. C'est pratique, par exemple, pour faire circuler notre structure Zombie entre fonctions. De cette manière, nous pouvons donner une référence à notre zombie à une fonction au lieu de donner l'Id zombie et le rechercher.
 
 Remarque : Il sera aussi important de grouper les types de données (c.-à.-d. les mettre à coté dans la structure) afin que Solidity puisse minimiser le stockage nécessaire. Par exemple, une structure avec des champs uint c; uint32 a; uint32 b; coûtera moins cher qu'une structure avec les champs uint32 a; uint c; uint32 b; car les champs uint32 seront regroupés ensemble.
 
