@@ -14,7 +14,7 @@
 `Sandwich storage mySandwich = sandwiches[index];`
 - Memory permet de recuperer un element sur la blockchain en le copiant par exemple
 `Sandwich memory anotherSandwich = sandwiches[index];`
-- Exemple de mapping 
+- Le mapping 
 `mapping (uint => address) public zombieToOwner;
 mapping (address => uint) ownerZombieCount;`
 - Exemple utilisation du mapping
@@ -33,6 +33,11 @@ ownerZombieCount[msg.sender]++;`
 - Initialisation d'une interface KittyInterface grace a l'adresse du smart contract
 `address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
 KittyInterface kittyContract = KittyInterface(ckAddress);`
+- Modificateurs de fonctions
+`modifier olderThan(uint _age, uint _userId) {
+  require (age[_userId] >= _age);
+  _;
+}`
 
 ## Gas
 
@@ -41,7 +46,7 @@ La quantité de gas requit pour exécuter une fonction dépend de la complexité
 Parce qu'exécuter des fonctions coûte de l'argent réel pour les utilisateurs, l'optimisation de code est encore plus importante en Solidity que pour les autres langages de programmation. Si votre code est négligé, vos utilisateurs devront payer plus cher pour exécuter vos fonctions - et cela pourrait résulter en des millions de dollars de frais inutiles répartis sur des milliers d'utilisateurs.
 Ethereum est comme un ordinateur gros et lent, mais extrêmement sécurisé. Quand vous exécuter une fonction, chaque nœud du réseau doit exécuter la même fonction pour vérifier le résultat - c'est ces milliers de nœuds vérifiant chaque exécution de fonction qui rendent Ethereum décentralisé et les données immuables et résistantes à la censure.
 
-## Optimisation gas dans le code
+## Optimisations
 
 ### Avec les uint :
 
@@ -57,9 +62,14 @@ Normalement, il n'y a pas d’intérêt à utiliser ces sous-types car Solidity 
 `struct MiniStruct { uint32 a; uint32 b; uint c; }`
 
 >**MiniStruct** utilisera moins de gas que **NormalStruct** grâce à l’emboîtement de structure.
-- Vous pouvez passer un pointeur de stockage d'une structure comme argument à une fonction private ou internal. C'est pratique, par exemple, pour faire circuler notre structure Zombie entre fonctions. De cette manière, nous pouvons donner une référence à notre zombie à une fonction au lieu de donner l'Id zombie et le rechercher.
+>- Vous pouvez passer un pointeur de stockage d'une structure comme argument à une fonction private ou internal. C'est pratique, par exemple, pour faire circuler notre structure Zombie entre fonctions. De cette manière, nous pouvons donner une référence à notre zombie à une fonction au lieu de donner l'Id zombie et le rechercher.
 
 Remarque : Il sera aussi important de grouper les types de données (c.-à.-d. les mettre à coté dans la structure) afin que Solidity puisse minimiser le stockage nécessaire. Par exemple, une structure avec des champs uint c; uint32 a; uint32 b; coûtera moins cher qu'une structure avec les champs uint32 a; uint c; uint32 b; car les champs uint32 seront regroupés ensemble.
+
+### Avec les vérifications public external :
+
+>Si on regarde cette fonction, on peut voir que nous l'avions rendu public dans les leçons précédentes. Une habitude importante de sécurité et d'examiner tous les fonctions public et external, et essayer d'imaginer de quelles manières les utilisateurs pourraient en abuser. Rappelez-vous, à part si ces fonctions ont un modificateur onlyOwner, tout le monde peut appeler ces fonctions avec les données qu'il veut.
+>La plus simple facon d'empêcher ce genre d'abus est de la rendre internal si possible.
 
 ## Time
 
