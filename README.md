@@ -10,6 +10,10 @@
 `require(condition)`
 - Recuperer l'id de la personne executant le smart contract
 `msg.sender`
+- Storage permet de modifier un element sur la blockchain
+`Sandwich storage mySandwich = sandwiches[index];`
+- Memory permet de recuperer un element sur la blockchain en le copiant par exemple
+`Sandwich memory anotherSandwich = sandwiches[index];`
 - Exemple de mapping 
 `mapping (uint => address) public zombieToOwner;
 mapping (address => uint) ownerZombieCount;`
