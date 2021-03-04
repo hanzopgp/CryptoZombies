@@ -48,12 +48,12 @@ Ethereum est comme un ordinateur gros et lent, mais extrêmement sécurisé. Qua
 
 ## Optimisations
 
-### Avec les uint :
+### --> Avec les uint :
 
 >Il existe d'autres types de uint : uint8, uint16, uint32, etc.
 Normalement, il n'y a pas d’intérêt à utiliser ces sous-types car Solidity réserve 256 bits de stockage indépendamment de la taille du uint. Par exemple, utiliser un uint8 à la place d'un uint (uint256) ne vous fera pas gagner de gas.
 
-### Avec les structures :
+### --> Avec les structures :
 
 >- Si vous avez plusieurs uint dans une structure, utiliser des plus petits uint quand c'est possible permettra à Solidity d'emboîter ces variables ensemble pour qu'elles prennent moins de place.
 
@@ -66,10 +66,16 @@ Normalement, il n'y a pas d’intérêt à utiliser ces sous-types car Solidity 
 
 Remarque : Il sera aussi important de grouper les types de données (c.-à.-d. les mettre à coté dans la structure) afin que Solidity puisse minimiser le stockage nécessaire. Par exemple, une structure avec des champs uint c; uint32 a; uint32 b; coûtera moins cher qu'une structure avec les champs uint32 a; uint c; uint32 b; car les champs uint32 seront regroupés ensemble.
 
-### Avec les vérifications public external :
+### --> Avec les vérifications public external :
 
 >Si on regarde cette fonction, on peut voir que nous l'avions rendu public dans les leçons précédentes. Une habitude importante de sécurité et d'examiner tous les fonctions public et external, et essayer d'imaginer de quelles manières les utilisateurs pourraient en abuser. Rappelez-vous, à part si ces fonctions ont un modificateur onlyOwner, tout le monde peut appeler ces fonctions avec les données qu'il veut.
 >La plus simple facon d'empêcher ce genre d'abus est de la rendre internal si possible.
+
+### --> Avec les fonctions view :
+
+>C'est parce que les fonctions view ne changent rien sur la blockchain - elles lisent seulement des données. Marquer une fonction avec view indique à web3.js qu'il a seulement besoin d'interroger votre nœud local d'Ethereum pour faire marcher la fonction, et il n'a pas besoin de créer une transaction sur la blockchain (qui devra être exécuter sur tous les nœuds et qui coûtera du gas).
+
+Remarque : Si une fonction view est appelée intérieurement à partir d'une autre fonction du même contrat qui n'est pas une fonction view, elle coûtera du gas. C'est parce que l'autre fonction va créer une transaction sur Ethereum, et aura besoin d'être vérifiée par chaque nœud. Ainsi les fonctions view sont gratuites seulement quand elles sont appelées extérieurement.
 
 ## Time
 
