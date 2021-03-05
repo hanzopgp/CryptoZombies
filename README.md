@@ -34,10 +34,10 @@ ownerZombieCount[msg.sender]++;`
 `address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;`<br>
 `KittyInterface kittyContract = KittyInterface(ckAddress);`<br>
 - Modificateurs de fonctions
-`modifier olderThan(uint _age, uint _userId) {`<br>
-` require (age[_userId] >= _age);`<br>
-`  _;`<br>
-`}`
+`modifier olderThan(uint _age, uint _userId) {
+ require (age[_userId] >= _age);
+  _;
+}`
 
 ## Gas
 
