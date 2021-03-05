@@ -55,12 +55,9 @@ Normalement, il n'y a pas d’intérêt à utiliser ces sous-types car Solidity 
 
 ### --> Avec les structures :
 
->- Si vous avez plusieurs uint dans une structure, utiliser des plus petits uint quand c'est possible permettra à Solidity d'emboîter ces variables ensemble pour qu'elles prennent moins de place.
-
-`struct NormalStruct { uint a; uint b; uint c; }`
-
-`struct MiniStruct { uint32 a; uint32 b; uint c; }`
-
+>- Si vous avez plusieurs uint dans une structure, utiliser des plus petits uint quand c'est possible permettra à Solidity d'emboîter ces variables ensemble pour qu'elles prennent moins de place.<br>
+`struct NormalStruct { uint a; uint b; uint c; }`<br>
+`struct MiniStruct { uint32 a; uint32 b; uint c; }`<br>
 >**MiniStruct** utilisera moins de gas que **NormalStruct** grâce à l’emboîtement de structure.
 >- Vous pouvez passer un pointeur de stockage d'une structure comme argument à une fonction private ou internal. C'est pratique, par exemple, pour faire circuler notre structure Zombie entre fonctions. De cette manière, nous pouvons donner une référence à notre zombie à une fonction au lieu de donner l'Id zombie et le rechercher.
 
@@ -100,14 +97,10 @@ Réfléchissons une minute. Quand vous faites un appel à une fonction API sur u
 Mais en Ethereum, puisque la monnaie (Ether), les données (charge utile de la transaction) et le code du contrat lui-même sont directement sur Ethereum, il est possible pour vous d'appeler une fonction et de payer le contrat en même temps.
 Cela permet un fonctionnement vraiment intéressant, comme demander un certain paiement au contrat pour pouvoir exécuter une fonction.
 
-Remarque : on peut utiliser un require avec comme condition "msg.value == 0.1 ether" dans la fonction modifier par payable :
-
-`require(msg.value == 0.001 ether);`
-
-Puis depuis web3.js par exemple on appelle la fonction buySomething() modifier par payable avec :
-
+Remarque : on peut utiliser un require avec comme condition "msg.value == 0.1 ether" dans la fonction modifier par payable :<br>
+`require(msg.value == 0.001 ether);`<br>
+Puis depuis web3.js par exemple on appelle la fonction buySomething() modifier par payable avec :<br>
 `OnlineStore.buySomething({from: web3.eth.defaultAccount, value: web3.utils.toWei(0.001)})`
-
 
 ## Ownable
 
