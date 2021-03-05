@@ -17,9 +17,9 @@
 - Le mapping 
 `mapping (uint => address) public zombieToOwner;`<br>
 `mapping (address => uint) ownerZombieCount;`
-- Exemple utilisation du mapping
-`zombieToOwner[id] = msg.sender;
-ownerZombieCount[msg.sender]++;`
+- Exemple utilisation du mapping<br>
+`zombieToOwner[id] = msg.sender;`<br>
+`ownerZombieCount[msg.sender]++;`
 - Declarer une fonction privée mais accessible par les contrats héritant du contrat ou est cette fonction
 `function f() internal {}`
 - Declarer une fonction public mais accessible seulement à l'exterieur du contrat
@@ -30,7 +30,7 @@ ownerZombieCount[msg.sender]++;`
 `function f() pure {}`
 - Exemple d'interface
 `contract NumberInterface {function getNum(address _myAddress) public view returns (uint);}`
-- Initialisation d'une interface KittyInterface grace a l'adresse du smart contract
+- Initialisation d'une interface KittyInterface grace a l'adresse du smart contract<br>
 `address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;`<br>
 `KittyInterface kittyContract = KittyInterface(ckAddress);`<br>
 - Modificateurs de fonctions
