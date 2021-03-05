@@ -102,6 +102,14 @@ Remarque : on peut utiliser un require avec comme condition "msg.value == 0.1 et
 Puis depuis web3.js par exemple on appelle la fonction buySomething() modifier par payable avec :<br>
 `OnlineStore.buySomething({from: web3.eth.defaultAccount, value: web3.utils.toWei(0.001)})`
 
+## Retraits
+
+>Après avoir envoyé des Ether à un contrat, ils sont stockés dans le compte Ethereum du contrat, et resteront ici - à part si vous ajoutez une fonction pour retirer les Ether du contrat. Vous pouvez transférer des Ether à une adresse en utilisant la fonction transfer, et this.balance retournera la balance totale stockée sur le contrat. Si 100 utilisateurs ont payé 1 Ether à votre contrat, this.balance sera égal à 100 Ether. Vous pouvez utilisez transfer pour envoyer des fonds à n'importe quelle adresse Ethereum.
+
+Remarque : on peut ainsi rendre la monnaie sur un paiement :<br>
+`uint itemFee = 0.001 ether;`<br>
+`msg.sender.transfer(msg.value - itemFee);`
+
 ## Ownable
 
 >Dans le cas de onlyOwner, rajouter ce modificateur à une fonction fera 
