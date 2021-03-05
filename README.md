@@ -93,6 +93,22 @@ Solidity a aussi des unités de temps seconds (secondes), minutes, hours (heures
 
 Remarque : L'horodatage unix est traditionnellement stocké dans un nombre 32-bit. Cela mènera au problème "Année 2038", quand l'horodatage unix 32-bits aura débordé et cassera beaucoup de système existant. Si nous voulons que notre DApp continue de marcher dans 20 ans, nous pouvons utiliser un nombre 64-bit à la place - mais nos utilisateurs auront besoin de dépenser plus de gas pour utiliser notre DApp pendant ce temps. Décision de conception !
 
+## Payable
+
+>Une des choses qui rend Solidity et Ethereum vraiment cool est le modificateur payable, une fonction payable est une fonction spéciale qui peut recevoir des Ether.
+Réfléchissons une minute. Quand vous faites un appel à une fonction API sur un serveur normal, vous ne pouvez pas envoyer des dollars US en même temps - pas plus que des Bitcoin.
+Mais en Ethereum, puisque la monnaie (Ether), les données (charge utile de la transaction) et le code du contrat lui-même sont directement sur Ethereum, il est possible pour vous d'appeler une fonction et de payer le contrat en même temps.
+Cela permet un fonctionnement vraiment intéressant, comme demander un certain paiement au contrat pour pouvoir exécuter une fonction.
+
+Remarque : on peut utiliser un require avec comme condition "msg.value == 0.1 ether" dans la fonction modifier par payable :
+
+`require(msg.value == 0.001 ether);`
+
+Puis depuis web3.js par exemple on appelle la fonction buySomething() modifier par payable avec :
+
+`OnlineStore.buySomething({from: web3.eth.defaultAccount, value: web3.utils.toWei(0.001)})`
+
+
 ## Ownable
 
 >Dans le cas de onlyOwner, rajouter ce modificateur à une fonction fera 
