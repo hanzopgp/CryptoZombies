@@ -135,6 +135,17 @@ des DApps Solidity commencent par copier/coller ce contrat Ownable, et leur prem
 Remarque : Donner des privilèges spéciaux au propriétaire du contrat comme là est souvent nécessaire, cependant cela pourrait aussi être utilisé malicieusement. Par exemple, le propriétaire pourrait ajouter une fonction de porte dérobée qui lui permettrait de transférer n'importe quel zombie à lui-même !
 C'est donc important de se rappeler que ce n'est pas parce qu'une DApp est sur Ethereum que cela veut dire qu'elle est décentralisée - vous devez lire le code source en entier pour vous assurez que le propriétaire n'a pas de privilèges qui pourraient vous inquiéter. En tant que développeur, il existe un équilibre entre garder le contrôle d'un DApp pour corriger de potentiels bugs, et construire une plateforme sans propriétaire en laquelle vos utilisateurs peuvent avoir confiance pour sécuriser leurs données.
 
+## SafeMath
+
+>Une bibliothèque est un type de contrat spécial en Solidity. Une de leurs fonctionnalités est que cela permet de rajouter des fonctions à un type de donnée native.
+Par exemple. avec la bibliothèque SafeMath, nous allons utiliser la syntaxe using SafeMath for uint256. La bibliothèque SafeMath à 4 fonctions — add, sub, mul, et div. Et maintenant nous pouvons utiliser ces fonctions à partir d'un uint256 en faisant.
+
+Exemple : utilisation de SafeMath<br>
+`using SafeMath for uint256;`<br>
+`uint256 a = 5;`<br>
+`uint256 b = a.add(3);`<br>
+`uint256 c = a.mul(2);`<br>
+
 ## Tokens ethereum
 
 >Si vous êtes dans la sphère Ethereum depuis un moment, vous avez sûrement entendu parler des tokens - en particulier des tokens ERC20.
@@ -142,7 +153,7 @@ un token Ethereum est un smart contract qui suit un ensemble de règles - à sav
 Le smart contract a habituellement un mappage interne, mapping(address => uint256) balances, qui permet de connaître la balance de chaque adresse.
 Un token est simplement un contrat qui permet de connaître combien de ce token chaque personne possède, et qui a certaines fonctions pour permettre aux utilisateurs de transférer leurs tokens à d'autres adresses.
 
-Exemple : code du token ERC721 a implementer<br>
+Exemple : Code du token ERC721 a importer et implementer<br>
 `contract ERC721 {`<br>
 ` event Transfer(address indexed _from, address indexed _to, uint256 _tokenId);`<br>
 `event Approval(address indexed _owner, address indexed _approved, uint256 _tokenId);`<br>
@@ -151,4 +162,4 @@ Exemple : code du token ERC721 a implementer<br>
 `function transfer(address _to, uint256 _tokenId) public;`<br>
 `function approve(address _to, uint256 _tokenId) public;`<br>
 `function takeOwnership(uint256 _tokenId) public;`<br>
-`}`
+`}` 
