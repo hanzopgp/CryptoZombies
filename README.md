@@ -142,7 +142,7 @@ un token Ethereum est un smart contract qui suit un ensemble de règles - à sav
 Le smart contract a habituellement un mappage interne, mapping(address => uint256) balances, qui permet de connaître la balance de chaque adresse.
 Un token est simplement un contrat qui permet de connaître combien de ce token chaque personne possède, et qui a certaines fonctions pour permettre aux utilisateurs de transférer leurs tokens à d'autres adresses.
 
-Exemple : code du token ERC721 a implementer
+Exemple : code du token ERC721 a implementer<br>
 `contract ERC721 {`<br>
 ` event Transfer(address indexed _from, address indexed _to, uint256 _tokenId);`<br>
 `event Approval(address indexed _owner, address indexed _approved, uint256 _tokenId);`<br>
