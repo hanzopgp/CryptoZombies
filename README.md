@@ -15,8 +15,8 @@
 - Memory permet de recuperer un element sur la blockchain en le copiant par exemple
 `Sandwich memory anotherSandwich = sandwiches[index];`
 - Le mapping 
-`mapping (uint => address) public zombieToOwner;
-mapping (address => uint) ownerZombieCount;`
+`mapping (uint => address) public zombieToOwner;`<br>
+`mapping (address => uint) ownerZombieCount;`
 - Exemple utilisation du mapping
 `zombieToOwner[id] = msg.sender;
 ownerZombieCount[msg.sender]++;`
@@ -31,13 +31,13 @@ ownerZombieCount[msg.sender]++;`
 - Exemple d'interface
 `contract NumberInterface {function getNum(address _myAddress) public view returns (uint);}`
 - Initialisation d'une interface KittyInterface grace a l'adresse du smart contract
-`address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;
-KittyInterface kittyContract = KittyInterface(ckAddress);`
+`address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d;`<br>
+`KittyInterface kittyContract = KittyInterface(ckAddress);`<br>
 - Modificateurs de fonctions
-`modifier olderThan(uint _age, uint _userId) {
-  require (age[_userId] >= _age);
-  _;
-}`
+`modifier olderThan(uint _age, uint _userId) {`<br>
+` require (age[_userId] >= _age);`<br>
+`  _;`<br>
+`}`
 
 ## Gas
 
