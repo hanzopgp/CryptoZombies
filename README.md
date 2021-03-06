@@ -2,10 +2,11 @@
 
 ## Table of contents
 
-1. [Presentation](#presentation)
-2. [Memento](#memento)
+1. [Presentation](#----------------PRESENTATION----------------)
+2. [Memento](#----------------MEMENTO----------------)
 3. [Backend](#----------------BACKEND----------------)
 4. [Frontend](#----------------FRONTEND----------------)
+5. [Testing](#----------------TESTING----------------)
 
 ## Presentation
 
@@ -305,3 +306,9 @@ Template : [cryptoZombies.events.Transfer({ filter: { _to: userAccount } })](htt
 >Nous pouvons interroger les évènements passés en utilisant getPastEvents, et utiliser les filtres fromBlock et toBlock pour indiquer à Solidity l'intervalle de temps pour récupérer nos évènements ("block" dans ce cas fait référence au numéro de bloc Ethereum).
 
 Remarque : Puisque vous pouvez utiliser cette méthode pour récupérer tous les évènements depuis la nuit des temps, cela peut être un cas d'utilisation intéressant : Utiliser les évènements comme un moyen de stockage moins cher.
+
+------------------------------------------------------------------
+
+## ----------------TESTING----------------
+
+------------------------------------------------------------------
