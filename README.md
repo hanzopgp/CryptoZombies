@@ -71,6 +71,8 @@
 });`<br>
 - Recuperer l'adresse de l'utilisateur<br>
 `var userAccount = web3.eth.accounts[0]`<br>
+- Convertir ether en wei<br>
+`web3js.utils.toWei("1", "ether");`<br>
 
 ------------------------------------------------------------------
 
@@ -274,3 +276,10 @@ receipt (reçu) va être émis quand la transaction est incluse dans un bloc Eth
 error (erreur) va être émis s'il y a un problème qui empêche la transaction d'être incluse dans un bloc, tel qu'un envoie insuffisant de gas par l'utilisateur. Nous allons vouloir informer l'utilisateur que la transaction n'a pas marché pour qu'il puisse réessayer.
 
 Remarque : Vous avec le choix de spécifier le gas et gasPrice quand vous appelez send, ex : .send({ from: userAccount, gas: 3000000 }). Si vous ne le spécifiez pas, MetaMask va laisser l'utilisateur choisir ces valeurs.
+
+## Payable
+
+>Il est facile d'indiquer combien d'Ether envoyer avec une fonction, en faisant attention à une chose : nous devons spécifier combien envoyer en wei, pas en Ether. Un wei est la plus petite sous-unité d'un Ether - il y a 10^18 wei dans un ether.
+
+Exemple : Envoie de 0.001 ether pour levelUp un zombie<br>
+`cryptoZombies.methods.levelUp(zombieId).send({ from: userAccount, value: web3js.utils.toWei("0.001", "ether") })`<br>
