@@ -283,3 +283,17 @@ Remarque : Vous avec le choix de spécifier le gas et gasPrice quand vous appele
 
 Exemple : Envoie de 0.001 ether pour levelUp un zombie<br>
 `cryptoZombies.methods.levelUp(zombieId).send({ from: userAccount, value: web3js.utils.toWei("0.001", "ether") })`<br>
+
+## Abonnement aux evenements
+
+>Si vous vous rapplez de zombiefactory.sol, nous avions un évènement appelé NewZombie qui était émis chaque fois qu'un nouveau zombie était créé. Avec Web3.js, vous pouvez vous abonner à un évènement pour que votre fournisseur web3 exécute une certaine logique de votre code à chaque fois qu'il est émis.
+
+Template : [cryptoZombies.events.NewZombie()](https://github.com/hanzopgp/CryptoZombies/blob/main/src/public/index.html)
+
+Remarque : Vous remarquerez que cela va déclencher une alerte pour N'IMPORTE quel zombie créé dans notre DApp - et pas seulement pour l'utilisateur actuel. Et si nous voulions seulement des alertes pour l'utilisateur actuel ?
+
+## Indexed
+
+>Afin de filtrer les évènements et écouter seulement les changements liés à l'utilisateur actuel, notre contrat Solidity devra utiliser le mot clé indexed, c'est ce que nous avons fait avec l'évènement Transfer de notre implémentation ERC721. Comme vous pouvez le voir, utiliser les champs event et indexed est une bonne habitude pour écouter les changements de votre contrat et les refléter dans le front-end de votre application.
+
+Template : [cryptoZombies.events.Transfer({ filter: { _to: userAccount } })](https://github.com/hanzopgp/CryptoZombies/blob/main/src/public/index.html)
