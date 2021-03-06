@@ -301,3 +301,30 @@ Remarque : Puisque vous pouvez utiliser cette méthode pour récupérer tous les
 
 ## --------------------TESTING--------------------
 
+## Build artifacts
+
+>Every time you compile a smart contract, the Solidity compiler generates a JSON file (referred to as build artifacts) which contains the binary represenation of that contract and saves it in the build/contracts folder.
+Next, when you run a migration, Truffle updates this file with the information related to that network.
+The first thing you'll need to do every time you start writing a new test suite is to load the build artifacts of the contract you want to interact with. This way, Truffle will know how to format our function calls in a way the contract will understand.
+
+Exemple :<br>
+`const myAwesomeContract = artifacts.require(“myAwesomeContract”);`<br>
+
+Remarque : The function returns something called a contract abstraction. In a nutshell, a contract abstraction hides the complexity of interacting with Ethereum and provides a convenient JavaScript interface to our Solidity smart contract. We'll be using it in the next chapters.
+
+## contract() function
+
+>contract() takes two arguments. The first one, a string, must indicate what we’re going to test. The second parameter, a callback, is where we’re going to actually write our tests. Execute them: the way we’ll be doing this is by calling a function named it() which also takes two arguments: a string that describes what the test actually does and a callback.
+
+Exemple :<br>
+`contract("MyAwesomeContract", (accounts) => {
+   it("should be able to receive Ethers", () => {
+   })
+ })`<br>
+ 
+ ## Testing
+ 
+ >Usually, every test has the following phases:<br>
+>- set up: in which we define the initial state and initialize the inputs.
+>- act: where we actually test the code. Always make sure you test only one thing.
+>- assert: where we check the results.
