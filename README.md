@@ -3,8 +3,8 @@
 ## Table of contents
 
 1. [Presentation](#presentation)
-2. [Backend](# ----------------BACKEND----------------)
-3. [Frontend](# ----------------FRONTEND----------------)
+2. [Backend](#----------------BACKEND----------------)
+3. [Frontend](#----------------FRONTEND----------------)
 
 ## Presentation
 
