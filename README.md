@@ -51,6 +51,8 @@
 `<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>`<br>
 - utiliser infura<br>
 `var web3 = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));`<br>
+- instancier web3<br>
+`var myContract = new web3js.eth.Contract(myABI, myContractAddress);`<br>
 
 ------------------------------------------------------------------
 
@@ -212,6 +214,22 @@ Vous pourriez héberger votre propre nœud Ethereum comme fournisseur. Mais il e
 
 Remarque : MetaMask utilise les serveurs d'Infura comme fournisseur web3, comme nous avons fait ci-dessus - mais il offre aussi la possibilité à l'utilisateur d'utiliser son propre fournisseur web3. En utilisant le fournisseur web3 de MetaMask, vous donnez à votre utilisateur le choix, et c'est une chose de moins à gérer pour votre application.
 
-Template :
+## ABI
 
+>ABI veut dire "Application Binary Interface" (Interface Binaire d'Application). Fondamentalement, c'est une représentation des fonctions de votre contrat au format JSON qui indique à Web3.js comment formater les appels aux fonctions pour que votre contrat les comprenne.
+Quand vous compilez votre contrat pour le déployer sur Ethereum (ce que nous verrons dans la Leçon 7), le compilateur Solidity vous donnera son ABI, vous aller devoir le copier et le sauvegarder en plus de l'adresse de votre contrat.
+
+## Appel des fonctions du contract
+
+### --> Call
+
+>call est utilisé pour les fonctions view etpure. C'est exécuté seulement sur le nœud local, et cela ne va pas créer de transaction sur la blockchain.
+
+Remarque : Les fonctions view et pure sont des fonctions en lecture seule et ne changent pas l'état de la blockchain. Elles ne coûtent pas de gas et l'utilisateur n'aura pas besoin de signer de transaction avec MetaMask.
+
+### --> Send
+
+>send va créer une transaction et changer l'état des données sur la blockchain. Vous aurez besoin d'utiliser send pour toutes les fonctions qui ne sont pas view ou pure.
+
+Remarque : Envoyer une transaction avec send demandera à l'utilisateur de payer du gas, en faisant apparaître MetaMask pour leur demander de signer une transaction. Quand on utilise MetaMask comme fournisseur web3, tout cela se fait automatiquement quand on appelle send(), et on n'a pas besoin de faire quoique ce soit de spécial dans notre code. Plutôt cool !
 
