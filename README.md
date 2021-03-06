@@ -39,6 +39,10 @@
   _;
 }`
 
+------------------------------------------------------------------
+## Backend
+------------------------------------------------------------------
+
 ## Gas
 
 >En Solidity, vos utilisateurs devront payer à chaque fois qu'ils exécutent une fonction de votre DApp avec une monnaie appelée gas. Les utilisateurs achètent du gas avec de l'Ether (la monnaie d'Ethereum), vos utilisateurs doivent donc dépenser de l'ETH pour exécuter des fonctions de votre DApp.
