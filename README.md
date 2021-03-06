@@ -13,6 +13,8 @@
 
 ## Memento
 
+### Backend
+
 - Demander confirmation avant d'executer le code qui suit
 `require(condition)`
 - Recuperer l'id de la personne executant le smart contract
@@ -46,6 +48,7 @@
   _;
 }`<br>
 
+### Frontend
 
 - Importer web3.min.js<br>
 `<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>`<br>
