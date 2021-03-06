@@ -3,8 +3,9 @@
 ## Table of contents
 
 1. [Presentation](#presentation)
-2. [Backend](#----------------BACKEND----------------)
-3. [Frontend](#----------------FRONTEND----------------)
+2. [Memento](#memento)
+3. [Backend](#----------------BACKEND----------------)
+4. [Frontend](#----------------FRONTEND----------------)
 
 ## Presentation
 
@@ -43,7 +44,13 @@
 `modifier olderThan(uint _age, uint _userId) {
  require (age[_userId] >= _age);
   _;
-}`
+}`<br>
+
+
+- importer web3.min.js<br>
+`<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>`<br>
+- utiliser infura<br>
+`var web3 = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));`<br>
 
 ------------------------------------------------------------------
 
@@ -184,3 +191,27 @@ Exemple : Code du token ERC721 a importer et implementer<br>
 ## ----------------FRONTEND----------------
 
 ------------------------------------------------------------------
+
+### Provider
+
+>La première chose dont nous avons besoin, c'est d'un fournisseur (provider) Web3.
+Rappelez-vous, Ethereum est fait de nœuds qui partagent une copie des mêmes données. Configurer un fournisseur Web3 indique à notre code avec quel nœud nous devrions communiquer pour traiter nos lectures et écritures. C'est un peu comme configurer l'URL d'un serveur web distant pour des appels API d'une application web classique.
+Vous pourriez héberger votre propre nœud Ethereum comme fournisseur. Mais il existe un service tiers qui vous facilitera la vie pour que vous n'ayez pas besoin de vous occuper de votre propre nœud Ethereum pour fournir une DApp à vos utilisateurs - Infura.
+
+### Infura 
+
+>Infura est un service qui a plusieurs nœuds Ethereum avec une fonctionnalité de cache pour des lectures plus rapides, que vous pouvez accéder gratuitement depuis leur API. En utilisant Infura comme fournisseur, vous pouvez envoyer et recevoir des messages de la blockchain Ethereum de manière fiable, sans avoir à vous occuper de votre propre nœud.
+
+## Private key
+
+>Ethereum (et les blockchains en général) utilise une paire de clés publique / privée pour signer numériquement les transactions. C'est un peu comme un mot de passe extrêmement compliqué pour signer numériquement. Ainsi, si je change des données sur la blockchain, je peux prouver grâce à la clé publique que je suis celui qui les a signées - mais puisque personne ne connaît ma clé privée, personne ne peut créer une transaction à ma place.
+
+## MetaMask
+
+>MetaMask est une extension Chrome et Firefox qui permet aux utilisateurs de gérer de manière sécurisée leurs comptes Ethereum et leurs clés privées, et d'utiliser ces comptes pour interagir avec les sites web qui utilisent Web3.js. (Si vous ne l'avez jamais utilisé, vous devriez vraiment l'installer - ainsi votre navigateur web sera compatible avec Web3, et vous allez pouvoir interagir avec tous les sites qui communiquent avec la blockchain Ethereum !).
+
+Remarque : MetaMask utilise les serveurs d'Infura comme fournisseur web3, comme nous avons fait ci-dessus - mais il offre aussi la possibilité à l'utilisateur d'utiliser son propre fournisseur web3. En utilisant le fournisseur web3 de MetaMask, vous donnez à votre utilisateur le choix, et c'est une chose de moins à gérer pour votre application.
+
+Template :
+
+
