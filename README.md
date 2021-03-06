@@ -1,30 +1,18 @@
 # CryptoZombies
 
-------------------------------------------------------------------
+## --------------------TABLE OF CONTENTS-------------------- 
 
-## ----------------TABLE OF CONTENTS---------------- 
+1. [Presentation](#--------------------PRESENTATION--------------------)
+2. [Memento](#--------------------MEMENTO--------------------)
+3. [Backend](#--------------------BACKEND--------------------)
+4. [Frontend](#--------------------FRONTEND--------------------)
+5. [Testing](#--------------------TESTING--------------------)
 
-------------------------------------------------------------------
-
-1. [Presentation](#----------------PRESENTATION----------------)
-2. [Memento](#----------------MEMENTO----------------)
-3. [Backend](#----------------BACKEND----------------)
-4. [Frontend](#----------------FRONTEND----------------)
-5. [Testing](#----------------TESTING----------------)
-
-------------------------------------------------------------------
-
-## ----------------PRESENTATION---------------- 
-
-------------------------------------------------------------------
+## --------------------PRESENTATION-------------------- 
 
 >This is the cryptozombies dapp tutoriel source code from [cryptozombies](https://www.cryptozombies.io). I'm also trying to keep the useful informations from that tutorial and what makes solidity and dapps amazing.
 
-------------------------------------------------------------------
-
-## ----------------MEMENTO---------------- 
-
-------------------------------------------------------------------
+## --------------------MEMENTO-------------------- 
 
 ### Backend
 
@@ -87,11 +75,7 @@
 - Convertir ether en wei<br>
 `web3js.utils.toWei("1", "ether");`<br>
 
-------------------------------------------------------------------
-
-## ----------------BACKEND---------------- 
-
-------------------------------------------------------------------
+## --------------------BACKEND-------------------- 
 
 ## Gas
 
@@ -221,11 +205,7 @@ Exemple : Code du token ERC721 a importer et implementer<br>
 `function takeOwnership(uint256 _tokenId) public;`<br>
 `}` 
 
-------------------------------------------------------------------
-
 ## ----------------FRONTEND----------------
-
-------------------------------------------------------------------
 
 ### Provider
 
@@ -319,8 +299,5 @@ Template : [cryptoZombies.events.Transfer({ filter: { _to: userAccount } })](htt
 
 Remarque : Puisque vous pouvez utiliser cette méthode pour récupérer tous les évènements depuis la nuit des temps, cela peut être un cas d'utilisation intéressant : Utiliser les évènements comme un moyen de stockage moins cher.
 
-------------------------------------------------------------------
+## --------------------TESTING--------------------
 
-## ----------------TESTING----------------
-
-------------------------------------------------------------------
