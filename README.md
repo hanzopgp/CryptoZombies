@@ -374,3 +374,43 @@ Exemple : Test de la self destruction<br>
 `afterEach(async () => {
    await contractInstance.kill();
 });`<br>
+
+### --> Assert false
+
+>Since our test should pass only if the smart contract errors out, our logic will look a bit different. We’ll have to wrap the second createRandomZombie function call inside of a try/catch block as follows.
+
+Exemple : Test de la self destruction<br>
+`try {
+    //try to create the second zombie
+    await contractInstance.createRandomZombie(zombieNames[1], {from: alice});
+    assert(true);
+  }
+  catch (err) {
+    return;
+  }
+assert(false, "The contract did not throw.");`<br>
+
+### --> Context function
+
+>We’ll call these two ways of transferring zombies "scenarios". In order to test each scenario, we would want to create two different groups of tests and give them meaningful descriptions.
+
+Exemple : [here](https://cryptozombies.io/fr/lesson/11/chapter/8)
+
+Remarque : It looks like all tests have passed which is obviously false since we didn't even write them yet!!
+Fortunately, there's an easy solution- if we just place an x in front of the context() functions as follows: xcontext(), Truffle will skip those tests. x can be placed in front of an it() function as well. Don't forget to remove all the x's when the tests for those functions have been written!
+
+### --> Time travelling
+
+>Fortunately, we don't have to wait that much. In fact, there's no need to wait at all. That's because Ganache provides a way to move forward in time through two helper functions:
+- evm_increaseTime: increases the time for the next block.
+- evm_mine: mines a new block.
+
+## Loom
+
+>Now, this tutorial would not be complete without showing you how to test against Loom Testnet.
+Recall from our previous lessons that, on Loom, users have access to much speedier and gas-free transactions than on Ethereum. This makes DAppChains a much better fit for something like a game or a user-facing DApp.
+And you know what? Deploying and testing against Loom is not different at all. We've gone ahead and summed up what needs to be done so you can test against Loom. Let's have a quick look.
+
+Exemple : [Link](https://cryptozombies.io/fr/lesson/11/chapter/14)
+
+
