@@ -1,5 +1,11 @@
 # CryptoZombies
 
+## Table of contents
+
+1. [Presentation](#presentation)
+2. [Backend](#backend)
+3. [Frontend](#frontend)
+
 ## Presentation
 
 >This is the cryptozombies dapp tutoriel source code from [cryptozombies](https://www.cryptozombies.io). I'm also trying to keep the useful informations from that tutorial and what makes solidity and dapps amazing.
@@ -41,7 +47,7 @@
 
 ------------------------------------------------------------------
 
-<h2>BACKEND</h2>
+## ----------------BACKEND---------------- 
 
 ------------------------------------------------------------------
 
@@ -172,3 +178,9 @@ Exemple : Code du token ERC721 a importer et implementer<br>
 `function approve(address _to, uint256 _tokenId) public;`<br>
 `function takeOwnership(uint256 _tokenId) public;`<br>
 `}` 
+
+------------------------------------------------------------------
+
+## ----------------FRONTEND----------------
+
+------------------------------------------------------------------
