@@ -2,7 +2,7 @@
 
 ## Presentation
 
->This is the cryptozombies dapp tutoriel source code from [cryptozombies](https://www.cryptozombies.io).
+>This is the cryptozombies dapp tutoriel source code from [cryptozombies](https://www.cryptozombies.io). I'm also trying to keep the useful informations from that tutorial and what makes solidity and dapps amazing.
 
 ## Memento
 
