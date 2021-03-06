@@ -1,6 +1,10 @@
 # CryptoZombies
 
-## Table of contents
+------------------------------------------------------------------
+
+## ----------------TABLE OF CONTENTS---------------- 
+
+------------------------------------------------------------------
 
 1. [Presentation](#----------------PRESENTATION----------------)
 2. [Memento](#----------------MEMENTO----------------)
@@ -8,11 +12,19 @@
 4. [Frontend](#----------------FRONTEND----------------)
 5. [Testing](#----------------TESTING----------------)
 
-## Presentation
+------------------------------------------------------------------
+
+## ----------------PRESENTATION---------------- 
+
+------------------------------------------------------------------
 
 >This is the cryptozombies dapp tutoriel source code from [cryptozombies](https://www.cryptozombies.io). I'm also trying to keep the useful informations from that tutorial and what makes solidity and dapps amazing.
 
-## Memento
+------------------------------------------------------------------
+
+## ----------------MEMENTO---------------- 
+
+------------------------------------------------------------------
 
 ### Backend
 
