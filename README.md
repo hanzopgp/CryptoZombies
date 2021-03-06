@@ -47,12 +47,25 @@
 }`<br>
 
 
-- importer web3.min.js<br>
+- Importer web3.min.js<br>
 `<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>`<br>
-- utiliser infura<br>
+- Utiliser infura<br>
 `var web3 = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));`<br>
-- instancier web3<br>
+- Instancier web3<br>
 `var myContract = new web3js.eth.Contract(myABI, myContractAddress);`<br>
+- Call function<br>
+`myContract.methods.myMethod(123).call()`<br>
+- Send function<br>
+`myContract.methods.myMethod(123).send()`<br>
+- Demander les informations du contrat public<br>
+`function getZombieDetails(id) {
+  return cryptoZombies.methods.zombies(id).call()
+}`<br>
+- Afficher ses informations après reception<br>
+`getZombieDetails(15)
+.then(function(result) {
+  console.log("Zombie 15: " + JSON.stringify(result));
+});`<br>
 
 ------------------------------------------------------------------
 
@@ -231,5 +244,9 @@ Remarque : Les fonctions view et pure sont des fonctions en lecture seule et ne 
 
 >send va créer une transaction et changer l'état des données sur la blockchain. Vous aurez besoin d'utiliser send pour toutes les fonctions qui ne sont pas view ou pure.
 
-Remarque : Envoyer une transaction avec send demandera à l'utilisateur de payer du gas, en faisant apparaître MetaMask pour leur demander de signer une transaction. Quand on utilise MetaMask comme fournisseur web3, tout cela se fait automatiquement quand on appelle send(), et on n'a pas besoin de faire quoique ce soit de spécial dans notre code. Plutôt cool !
+Remarque : Envoyer une transaction avec send demandera à l'utilisateur de payer du gas, en faisant apparaître MetaMask pour leur demander de signer une transaction. Quand on utilise MetaMask comme fournisseur web3, tout cela se fait automatiquement quand on appelle send(), et on n'a pas besoin de faire quoique ce soit de spécial dans notre code.
+
+## Getter automatique
+
+>En Solidity, quand vous déclarez une variable public, cela crée automatiquement une fonction "getter" (une fonction de récupération) public avec le même nom. Si vous voulez récupérer le zombie avec l'id 15, vous l’appellerez comme si c'était une fonction : zombies(15).
 
