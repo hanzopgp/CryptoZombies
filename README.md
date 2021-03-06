@@ -69,6 +69,8 @@
 .then(function(result) {
   console.log("Zombie 15: " + JSON.stringify(result));
 });`<br>
+- Recuperer l'adresse de l'utilisateur<br>
+`var userAccount = web3.eth.accounts[0]`<br>
 
 ------------------------------------------------------------------
 
@@ -230,6 +232,8 @@ Vous pourriez héberger votre propre nœud Ethereum comme fournisseur. Mais il e
 
 Remarque : MetaMask utilise les serveurs d'Infura comme fournisseur web3, comme nous avons fait ci-dessus - mais il offre aussi la possibilité à l'utilisateur d'utiliser son propre fournisseur web3. En utilisant le fournisseur web3 de MetaMask, vous donnez à votre utilisateur le choix, et c'est une chose de moins à gérer pour votre application.
 
+Template : [startApp()](https://github.com/hanzopgp/CryptoZombies/blob/main/src/public/index.html)
+
 ## ABI
 
 >ABI veut dire "Application Binary Interface" (Interface Binaire d'Application). Fondamentalement, c'est une représentation des fonctions de votre contrat au format JSON qui indique à Web3.js comment formater les appels aux fonctions pour que votre contrat les comprenne.
@@ -252,4 +256,11 @@ Remarque : Envoyer une transaction avec send demandera à l'utilisateur de payer
 ## Getter automatique
 
 >En Solidity, quand vous déclarez une variable public, cela crée automatiquement une fonction "getter" (une fonction de récupération) public avec le même nom. Si vous voulez récupérer le zombie avec l'id 15, vous l’appellerez comme si c'était une fonction : zombies(15).
+
+## Recuperer l'adresse de l'user et la mettre a jour
+
+>Puisque l’utilisateur peut changer de compte actif n'importe quand avec MetaMask, notre application a besoin de surveiller cette variable pour voir si elle change et mettre à jour l'interface en conséquence. Par exemple, si la page d'accueil montre l'armée de zombie d'un utilisateur, quand il change de compte dans MetaMask, nous allons vouloir mettre à jour la page pour montrer l'armée de zombie du nouveau compte sélectionné.
+
+Template : [setInterval()](https://github.com/hanzopgp/CryptoZombies/blob/main/src/public/index.html)
+
 
