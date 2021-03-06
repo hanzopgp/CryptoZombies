@@ -263,4 +263,14 @@ Remarque : Envoyer une transaction avec send demandera à l'utilisateur de payer
 
 Template : [setInterval()](https://github.com/hanzopgp/CryptoZombies/blob/main/src/public/index.html)
 
+## Envoyer des transactions
 
+>Maintenant nous allons voir comment changer les données de notre smart contract avec les fonctions send.
+
+Remarque : Il y a un certain délais entre le moment où l'utilisateur envoie une transaction avec send et le moment où cette transaction prend effet sur la blockchain. C'est parce qu'il faut attendre que la transaction soit incluse dans un bloc, et un bloc est créé toutes les 15 sec environ avec Ethereum. S'il y a beaucoup de transactions en attente, ou si l'utilisateur paye un prix de gas trop bas, notre transaction pourrait attendre plusieurs blocs avant d'être incluse, et cela pourrait prendre plusieurs minutes.
+
+>Notre fonction envoie avec send une transaction à notre fournisseur Web3, et met à la chaîne un écouteur d'évènements :
+receipt (reçu) va être émis quand la transaction est incluse dans un bloc Ethereum, ce qui veut dire que notre zombie a été créé et sauvegardé dans notre contrat.
+error (erreur) va être émis s'il y a un problème qui empêche la transaction d'être incluse dans un bloc, tel qu'un envoie insuffisant de gas par l'utilisateur. Nous allons vouloir informer l'utilisateur que la transaction n'a pas marché pour qu'il puisse réessayer.
+
+Remarque : Vous avec le choix de spécifier le gas et gasPrice quand vous appelez send, ex : .send({ from: userAccount, gas: 3000000 }). Si vous ne le spécifiez pas, MetaMask va laisser l'utilisateur choisir ces valeurs.
