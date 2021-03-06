@@ -286,14 +286,22 @@ Exemple : Envoie de 0.001 ether pour levelUp un zombie<br>
 
 ## Abonnement aux evenements
 
+### --> Listen
+
 >Si vous vous rapplez de zombiefactory.sol, nous avions un évènement appelé NewZombie qui était émis chaque fois qu'un nouveau zombie était créé. Avec Web3.js, vous pouvez vous abonner à un évènement pour que votre fournisseur web3 exécute une certaine logique de votre code à chaque fois qu'il est émis.
 
 Template : [cryptoZombies.events.NewZombie()](https://github.com/hanzopgp/CryptoZombies/blob/main/src/public/index.html)
 
 Remarque : Vous remarquerez que cela va déclencher une alerte pour N'IMPORTE quel zombie créé dans notre DApp - et pas seulement pour l'utilisateur actuel. Et si nous voulions seulement des alertes pour l'utilisateur actuel ?
 
-## Indexed
+### --> Indexed
 
 >Afin de filtrer les évènements et écouter seulement les changements liés à l'utilisateur actuel, notre contrat Solidity devra utiliser le mot clé indexed, c'est ce que nous avons fait avec l'évènement Transfer de notre implémentation ERC721. Comme vous pouvez le voir, utiliser les champs event et indexed est une bonne habitude pour écouter les changements de votre contrat et les refléter dans le front-end de votre application.
 
 Template : [cryptoZombies.events.Transfer({ filter: { _to: userAccount } })](https://github.com/hanzopgp/CryptoZombies/blob/main/src/public/index.html)
+
+### --> Past events
+
+>Nous pouvons interroger les évènements passés en utilisant getPastEvents, et utiliser les filtres fromBlock et toBlock pour indiquer à Solidity l'intervalle de temps pour récupérer nos évènements ("block" dans ce cas fait référence au numéro de bloc Ethereum).
+
+Remarque : Puisque vous pouvez utiliser cette méthode pour récupérer tous les évènements depuis la nuit des temps, cela peut être un cas d'utilisation intéressant : Utiliser les évènements comme un moyen de stockage moins cher.
