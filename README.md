@@ -135,7 +135,7 @@ Même si cette fonction aléatoire N'EST PAS sécurisée sur Ethereum, en pratiq
 
 Exemple d'aléatoire non parfaitement sécurisé :<br>
 `uint randNonce = 0;`<br>
-`uint random = uint(keccak256(now, msg.sender, randNonce)) % 100;`
+`uint random = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % 100;`
 
 Remarque : Une des possibilités serait d'avoir un oracle pour avoir accès à une fonction aléatoire en dehors de la blockchain Ethereum.
 
